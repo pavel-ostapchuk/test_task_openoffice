@@ -30,7 +30,7 @@ const MainPage = () => {
 
   return (
     <>
-      <GetCatSectionStyled isMinHeightNeeded={!loading && !!currentCatData}>
+      <GetCatSectionStyled>
         <CheckBox
           name={enabled}
           type="checkbox"
