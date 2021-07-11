@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useRequest } from "../../hooks/useRequest";
 import { ICatProps } from "./interface";
 import { MainPageContext } from "./context";
-import { PageWrapperStyled } from "./style";
 
 const MainPageContainer = ({ children }: any) => {
   const { loading, request } = useRequest();
@@ -57,7 +56,7 @@ const MainPageContainer = ({ children }: any) => {
         },
       }}
     >
-      <PageWrapperStyled>{children}</PageWrapperStyled>
+      {children}
     </MainPageContext.Provider>
   );
 };
