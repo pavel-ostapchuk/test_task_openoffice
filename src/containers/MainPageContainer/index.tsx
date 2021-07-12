@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRequest } from "../../hooks/useRequest";
 import { ICatProps } from "./interface";
 import { MainPageContext } from "./context";
+import { useCallback } from "react";
 
 const MainPageContainer = ({ children }: any) => {
   const { loading, request } = useRequest();
@@ -10,24 +11,24 @@ const MainPageContainer = ({ children }: any) => {
   const [isAutoRefresh, setAutoRefresh] = useState(false);
   const [currentCatData, setCurrentCatData] = useState<ICatProps | null>(null);
 
-  const onChangeEnabledInput = (e: Event) => {
+  const onChangeEnabledInput = useCallback((e: Event) => {
     const { checked } = e.target as HTMLInputElement;
     setEnableContent(checked);
     setAutoRefresh(false);
-  };
+  }, []);
 
-  const onChangeAutoRefreshInput = async (e: Event) => {
+  const onChangeAutoRefreshInput = useCallback(async (e: Event) => {
     const { checked } = e.target as HTMLInputElement;
     setAutoRefresh(checked);
-  };
+  }, []);
 
-  const onFetchHandler = () => {
+  const onFetchHandler = useCallback(() => {
     request("https://api.thecatapi.com/v1/images/search")
       .then((res) => setCurrentCatData(res[0]))
       .catch((err) => {
         throw err;
       });
-  };
+  }, [request]);
 
   useEffect(() => {
     if (isAutoRefresh) {

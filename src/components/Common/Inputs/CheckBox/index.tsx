@@ -19,7 +19,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
         onChange={onChange}
         disabled={disabledStatus}
       />
-      <LabelStyled onChange={onChange} htmlFor={name}>
+      <LabelStyled disabled={disabledStatus} onChange={onChange} htmlFor={name}>
         {name}
       </LabelStyled>
     </div>

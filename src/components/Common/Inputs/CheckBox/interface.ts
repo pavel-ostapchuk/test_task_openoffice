@@ -5,3 +5,7 @@ export interface ICheckBoxProps {
   checkedStatus: boolean;
   disabledStatus?: boolean;
 }
+
+export interface ILabelStyledProps {
+  disabled?: boolean;
+}

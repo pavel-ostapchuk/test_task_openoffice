@@ -10,7 +10,6 @@ export const useRequest = () => {
       try {
         if (body) {
           body = JSON.stringify(body);
-          headers["x-api-key"] = "ea5cf2a6-c838-4d33-9f89-b8def91d23e4";
         }
 
         const response = await fetch(url, { method, body, headers });
